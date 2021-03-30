@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">EventBudget2.0</string>
+    <string name="create_event">Створити подію</string>
+    <string name="create">Створити</string>
+    <string name="participants">Учасники</string>
+    <string name="choose_participants">Виберіть учасників</string>
+    <string name="create_participant">Створити учасника</string>
+    <string name="done">Готово</string>
+    <string name="add_participants">Додайте учасників</string>
+    <string name="add_payment">Додати оплату></string>
+    <string name="create_payment">Створити витрату</string>
+    <string name="description">Опис</string>
+    <string name="value">Сума</string>
+    <string name="add_payer">Додати платника</string>
+    <string name="payment_participants">Учасники платежу</string>
+    <string name="add_payment_participant">Додати учасника платежу</string>
+    <string name="incorrect_value_error">Сума повинна бути більше 0</string>
+    <string name="empty_payer_error">Додайте платника</string>
+    <string name="empty_participants_list">Додайте учасників платежу</string>
+    <string name="payments">Витрати</string>
+    <string name="delete_payment">Видалити оплату</string>
+    <string name="save_changes">Зберегти зміни</string>
+    <string name="event_name">Назва події</string>
+    <string name="user_name">Ім\'я користувача</string>
+</resources>

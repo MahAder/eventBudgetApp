@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/app_vavigation"
+    app:startDestination="@id/eventFragment">
+
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="com.ader.eventbudget20.presentation.event.EventFragment"
+        android:label="EventFragment" >
+        <action
+            android:id="@+id/action_eventFragment_to_eventDetailsFragment"
+            app:destination="@id/eventDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addParticipantFragment"
+        android:name="com.ader.eventbudget20.presentation.participant.AddParticipantFragment"
+        android:label="AddParticipantFragment" >
+        <argument
+            android:name="eventId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventDetailsFragment"
+        android:name="com.ader.eventbudget20.presentation.event.details.EventDetailsFragment"
+        android:label="EventDetailsFragment" >
+        <action
+            android:id="@+id/action_eventDetailsFragment_to_addParticipantFragment"
+            app:destination="@id/addParticipantFragment" />
+        <argument
+            android:name="eventId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_eventDetailsFragment_to_createPaymentFragment"
+            app:destination="@id/createPaymentFragment" />
+        <action
+            android:id="@+id/action_eventDetailsFragment_to_paymentDetailsFragment"
+            app:destination="@id/paymentDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPaymentFragment"
+        android:name="com.ader.eventbudget20.presentation.payment.createpayment.CreatePaymentFragment"
+        android:label="CreatePaymentFragment" >
+        <argument
+            android:name="eventId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentDetailsFragment"
+        android:name="com.ader.eventbudget20.presentation.payment.details.PaymentDetailsFragment"
+        android:label="PaymentDetailsFragment" >
+        <argument
+            android:name="paymentId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
