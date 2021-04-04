@@ -22,9 +22,9 @@ class ParticipantRepositoryImpl(private val participantDao: ParticipantDao): Par
         participantDao.delete(user.toParticipantDBModel(eventId))
     }
 
-    override fun getAllParticipantsLive(eventId: Int): Flow<List<User>> {
+    override fun getAllParticipantsLive(eventId: Int): Flow<List<User>?> {
         return participantDao.getAllParticipantsLive(eventId).map {
-            it.users.map { userDBModel ->
+            it?.users?.map { userDBModel ->
                 userDBModel.toModel()
             }
         }

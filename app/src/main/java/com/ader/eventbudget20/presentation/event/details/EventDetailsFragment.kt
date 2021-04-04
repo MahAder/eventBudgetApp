@@ -81,6 +81,10 @@ class EventDetailsFragment : BaseFragment<EventDetailsViewModel>(), EventDetails
                 navigateToAddPaymentFragment()
                 true
             }
+            R.id.action_delete_event -> {
+                viewModel.deleteEvent()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -114,6 +118,12 @@ class EventDetailsFragment : BaseFragment<EventDetailsViewModel>(), EventDetails
     override fun navigateToAddParticipants() {
         view?.post {
             navigateToAddParticipantsFragment()
+        }
+    }
+
+    override fun back() {
+        view?.post {
+            findNavController().popBackStack()
         }
     }
 }

@@ -6,11 +6,23 @@ import androidx.room.ForeignKey
 import androidx.room.Index
 import com.ader.eventbudget20.constants.DatabaseConstants
 
-@Entity(tableName = DatabaseConstants.PAYER_TABLE_NAME, foreignKeys = [
-    ForeignKey(onDelete = ForeignKey.CASCADE, entity = UserDBModel::class,
-        parentColumns = [DatabaseConstants.ID_USER], childColumns = [DatabaseConstants.ID_USER])
-], indices = [Index(DatabaseConstants.ID_USER)],
-    primaryKeys = [DatabaseConstants.ID_USER, DatabaseConstants.ID_PAYMENT])
+@Entity(
+    tableName = DatabaseConstants.PAYER_TABLE_NAME, foreignKeys = [
+        ForeignKey(
+            onDelete = ForeignKey.CASCADE,
+            entity = UserDBModel::class,
+            parentColumns = [DatabaseConstants.ID_USER],
+            childColumns = [DatabaseConstants.ID_USER]
+        ),
+        ForeignKey(
+            onDelete = ForeignKey.CASCADE,
+            entity = PaymentDBModel::class,
+            parentColumns = [DatabaseConstants.ID_PAYMENT],
+            childColumns = [DatabaseConstants.ID_PAYMENT]
+        )
+    ], indices = [Index(DatabaseConstants.ID_USER)],
+    primaryKeys = [DatabaseConstants.ID_USER, DatabaseConstants.ID_PAYMENT]
+)
 data class PayerDBModel(
     @ColumnInfo(name = DatabaseConstants.ID_PAYMENT)
     val idPayment: Int,

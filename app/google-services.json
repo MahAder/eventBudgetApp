@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "965552944463",
+    "project_id": "eventbudgetapp",
+    "storage_bucket": "eventbudgetapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965552944463:android:de0b088e4ba9f61e31013a",
+        "android_client_info": {
+          "package_name": "com.receipt.eventbudget20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965552944463-tf49me0d8mhm126bujm0r0jm865q8egq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAw0D79VeiBJPmnuDzKBKURGIYQP7EBys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965552944463-tf49me0d8mhm126bujm0r0jm865q8egq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

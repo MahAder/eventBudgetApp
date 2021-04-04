@@ -22,10 +22,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class EventDetailsViewModel @Inject constructor(
-    private val participantRepository: ParticipantRepository,
+    participantRepository: ParticipantRepository,
     private val paymentRepository: PaymentRepository,
     private val eventRepository: EventRepository,
-    private val state: SavedStateHandle
+    state: SavedStateHandle
 ) : BaseViewModel() {
     private val eventId = state.get<Int>("eventId") ?: -1
     private val allParticipantFlow = participantRepository.getAllParticipantsLive(eventId)
@@ -34,16 +34,19 @@ class EventDetailsViewModel @Inject constructor(
     val paymentsLiveData = MutableLiveData<List<Payment>>()
     val eventLiveData = MutableLiveData<Event>()
     val eventTotalValueLiveData = MutableLiveData<Float>()
+    private lateinit var event: Event
 
     var eventDetailsNavigation: EventDetailsNavigation? = null
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            eventLiveData.postValue(eventRepository.getEventById(eventId))
+            event = eventRepository.getEventById(eventId)
+            eventLiveData.postValue(event)
             val data = allPaymentsFlow.flatMapLatest {payments->
                 paymentsLiveData.postValue(payments)
                 eventTotalValueLiveData.postValue(calculateEventTotal(payments))
                 allParticipantFlow.map {users ->
+                    if(users == null) return@map
                     if(users.isEmpty()){
                         eventDetailsNavigation?.navigateToAddParticipants()
                     } else {
@@ -56,9 +59,14 @@ class EventDetailsViewModel @Inject constructor(
                 }
             }
 
-            data.collect {
+            data.collect {}
+        }
+    }
 
-            }
+    fun deleteEvent(){
+        viewModelScope.launch(Dispatchers.IO){
+            eventRepository.deleteEvent(event)
+            eventDetailsNavigation?.back()
         }
     }
 

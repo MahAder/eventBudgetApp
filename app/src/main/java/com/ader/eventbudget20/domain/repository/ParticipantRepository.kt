@@ -11,7 +11,7 @@ interface ParticipantRepository {
 
     suspend fun deleteParticipant(user: User, eventId: Int)
 
-    fun getAllParticipantsLive(eventId: Int): Flow<List<User>>
+    fun getAllParticipantsLive(eventId: Int): Flow<List<User>?>
 
     suspend fun getAllParticipants(eventId: Int): List<User>
 }

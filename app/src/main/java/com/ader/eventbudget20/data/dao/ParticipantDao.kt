@@ -17,7 +17,7 @@ interface ParticipantDao {
     fun delete(participantDBModel: ParticipantDBModel)
 
     @Query("SELECT * FROM event WHERE event.id_event == :eventId")
-    fun getAllParticipantsLive(eventId: Int): Flow<EventWithUsersModel>
+    fun getAllParticipantsLive(eventId: Int): Flow<EventWithUsersModel?>
 
     @Query("SELECT * FROM event WHERE event.id_event == :eventId")
     fun getAllParticipants(eventId: Int): EventWithUsersModel

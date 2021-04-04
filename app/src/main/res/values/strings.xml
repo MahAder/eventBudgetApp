@@ -22,4 +22,5 @@
     <string name="save_changes">Зберегти зміни</string>
     <string name="event_name">Назва події</string>
     <string name="user_name">Ім\'я користувача</string>
+    <string name="delete_event">Видалити подію</string>
 </resources>
